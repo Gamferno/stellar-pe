@@ -1,0 +1,37 @@
+{
+  "tasteLearning": false,
+  "permissions": {
+    "allow": [
+      "Shell(which rustup; rustc --version; ~/.cargo/bin/stellar --version 2>/dev/null; ls ~/.cargo/bin/ 2>/dev/null | head -20)",
+      "Shell(rustup target list --installed 2>/dev/null; rustc --print target-list 2>/dev/null | grep -i wasm; ls ~/.rustup/toolchains 2>/dev/null)",
+      "Shell(cargo:*)",
+      "Shell(grep:*)",
+      "Shell(~/.cargo/bin/stellar:*)",
+      "Shell(strings:*)",
+      "Shell(pacman:*)",
+      "Shell(ls /usr/lib/rustlib/ 2>/dev/null; ls /usr/lib/rustlib/wasm32v1-none/lib/ 2>/dev/null | head; ls /usr/lib/rustlib/wasm32-unknown-unknown/lib/ 2>/dev/null | head)",
+      "Shell(curl --proto =https --tlsv1.2 -sSf https://sh.rustup.rs)",
+      "Shell(sh -s -- -y --default-toolchain stable 2 >& 1)",
+      "Shell(ls ~/.rustup 2>/dev/null; ls ~/.cargo/bin/ 2>/dev/null; which rustup 2>/dev/null)",
+      "Shell(ls ~/.rustup/toolchains/; source ~/.cargo/env 2>/dev/null; rustup --version; rustc --version 2>/dev/null; which rustc)",
+      "Shell(export:*)",
+      "Shell(rustup:*)",
+      "Shell(export PATH=\"$HOME/.cargo/bin:$PATH\"; ls ~/.rustup/toolchains/ 2>/dev/null; rustup toolchain list 2>&1; ls ~/.rustup/downloads 2>/dev/null | head -3)",
+      "Shell(rustc:*)",
+      "Shell(ls:*)",
+      "Shell(curl -s https://crates.io/api/v1/crates/soroban-sdk 2 > /dev/null)",
+      "Shell(tar:*)",
+      "Shell(export PATH=\"$HOME/.cargo/bin:$PATH\"; ~/.cargo/bin/stellar keys generate deployer --network testnet 2>&1; ~/.cargo/bin/stellar keys address deployer)",
+      "Shell(curl -s \"https://friendbot.stellar.org?addr=GAAYOENQOYZAGPAMBOVDDIE7LFXRH6Z4QKFPX4X5RGADDVKV33P4QNEP\")",
+      "Shell(export PATH=\"$HOME/.cargo/bin:$PATH\"; ~/.cargo/bin/stellar keys secret deployer 2>&1; echo ---; cat ~/.config/stellar/identity/deployer.toml 2>/dev/null)",
+      "Shell(export PATH=\"$HOME/.cargo/bin:$PATH\"; cd /home/om/Documents/StellarPay/backend && cp .env.example .env && JWT=$(head -c32 /dev/urandom | xxd -p -c32) && sed -i \"s|CONTRACT_ID=<your deployed contract id here>|CONTRACT_ID=CDLEEWQTY3XPC7MQCGIPQFMAGPCF5PKOQLZVTQUTC7Z75FS7RGJX5ESR|; s|ANCHOR_SIGNING_KEY=<your backend signing key — G...>|ANCHOR_SIGNING_KEY=GAAYOENQOYZAGPAMBOVDDIE7LFXRH6Z4QKFPX4X5RGADDVKV33P4QNEP|; s|ANCHOR_SECRET_KEY=<your backend secret key — S...>|ANCHOR_SECRET_KEY=SBURA5Z35XA44JTEH4OA2APNVVMBKLJU74ORGPKXXAAX7OUMDFCOAA42|; s|JWT_SECRET=<random 32-byte hex>|JWT_SECRET=$JWT|\" .env && grep -v SECRET .env)",
+      "Shell(npm:*)",
+      "Shell(cd /home/om/Documents/StellarPay/backend && node -e \"const p = require('@stellar/stellar-sdk/package.json'); console.log(p.version)\" 2>/dev/null; ls node_modules/@stellar/stellar-sdk/lib/ 2>/dev/null; grep -o '\"\\./rpc[^\"]*\"' node_modules/@stellar/stellar-sdk/package.json 2>/dev/null; grep -E '\"exports\"' -A15 node_modules/@stellar/stellar-sdk/package.json | head -25)",
+      "Shell(node -e import('@stellar/stellar-sdk/rpc').then(m => console.log(Object.keys(m).slice(0,30))) 2 >& 1)",
+      "Shell(node -e import('@stellar/stellar-sdk/rpc').then(m => console.log('rpc has scValToNative:', 'scValToNative' in m)))",
+      "Shell(node -e import('@stellar/stellar-sdk').then(m => console.log('root has scValToNative:', 'scValToNative' in m, '| SorobanRpc:', 'SorobanRpc' in m)))"
+    ],
+    "deny": [],
+    "defaultMode": "default"
+  }
+}
