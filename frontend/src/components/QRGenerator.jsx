@@ -2,13 +2,18 @@ import { useState, useRef } from 'react';
 import { QRCodeSVG } from 'qrcode.react';
 import { Download, RefreshCw, QrCode } from 'lucide-react';
 
-export function QRGenerator({ merchantId, contractId }) {
+// USDC issuer on Stellar Testnet
+const USDC_ISSUER = 'GBBD47IF6LWK7P7MDEVSCWR7DPUWV3NY3DTQEVFL4NAT4AQH3ZLLFLA5';
+
+export function QRGenerator({ merchantId, walletAddress, _contractId }) {
   const [amount, setAmount] = useState('');
   const [generated, setGenerated] = useState(false);
   const qrRef = useRef(null);
 
-  const uri = merchantId
-    ? `stellarpe://pay?merchant=${encodeURIComponent(merchantId)}&amount=${encodeURIComponent(amount)}&asset=USDC&contract=${contractId || ''}`
+  // SEP-7 payment URI — scannable by Lobstr, StellarX, and other SEP-7 wallets
+  // destination = merchant's G... wallet, memo = merchantId for backend routing
+  const uri = walletAddress && amount
+    ? `web+stellar:pay?destination=${walletAddress}&amount=${encodeURIComponent(amount)}&asset_code=USDC&asset_issuer=${USDC_ISSUER}&memo=${encodeURIComponent(merchantId)}&memo_type=text`
     : '';
 
   const handleGenerate = () => {
@@ -83,7 +88,7 @@ export function QRGenerator({ merchantId, contractId }) {
               includeMargin={true}
             />
           </div>
-          <p className="qr-scan-hint">Customer scans with their Stellar wallet</p>
+          <p className="qr-scan-hint">Scan with <strong>Lobstr</strong> or any SEP-7 wallet to pay directly</p>
           <div className="qr-actions">
             <button className="btn btn-outline" onClick={downloadQR}>
               <Download size={16} />

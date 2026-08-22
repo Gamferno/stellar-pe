@@ -5,7 +5,7 @@ import { PaymentStatus } from '../components/PaymentStatus';
 import { SettleButton } from '../components/SettleButton';
 import { FeedbackForm } from '../components/FeedbackForm';
 import {
-  Wallet, LogOut, TrendingUp, ArrowDownToLine,
+  Wallet, LogOut, TrendingUp,
   Clock, Zap, RefreshCw, AlertTriangle, BarChart2, Star
 } from 'lucide-react';
 
@@ -26,7 +26,7 @@ export default function Dashboard() {
   const [loadingMerchant, setLoadingMerchant] = useState(false);
   const [regError, setRegError] = useState('');
   // jwt: in dev mode this is empty; in production it would be obtained via SEP-10
-  const [jwt, setJwt] = useState('');
+  const [jwt] = useState('');
 
   // Auto-register / fetch merchant when wallet connected
   useEffect(() => {
@@ -227,6 +227,7 @@ export default function Dashboard() {
         <div className="card">
           <QRGenerator
             merchantId={merchant?.id}
+            walletAddress={publicKey}
             contractId={CONTRACT_ID}
           />
         </div>

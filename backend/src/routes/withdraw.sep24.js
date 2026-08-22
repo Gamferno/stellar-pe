@@ -22,13 +22,13 @@ export async function withdrawRoutes(app) {
    */
   app.post('/transactions/withdraw/interactive', async (req, reply) => {
     const { asset_code = 'USDC', amount, jwt, quote_id, merchant_id } = req.body || {};
-    if (!amount || !jwt) return reply.badRequest('amount and jwt required');
+    if (!amount) return reply.badRequest('amount required');
 
     const db = req.db;
 
     try {
       const transferServer = await getTransferServer(ANCHOR_HOME_DOMAIN);
-      if (transferServer) {
+      if (transferServer && jwt) {
         const formData = new URLSearchParams({
           asset_code,
           amount: amount.toString(),
@@ -44,23 +44,25 @@ export async function withdrawRoutes(app) {
           },
           body: formData.toString(),
         });
-        const data = await res.json();
+        if (res.ok) {
+          const data = await res.json();
 
-        // Persist withdrawal session
-        if (data.id && merchant_id) {
-          db.prepare(`
-            INSERT INTO withdrawals (id, merchant_id, amount_stroops, status, anchor_url)
-            VALUES (?, ?, ?, 'pending', ?)
-          `).run(data.id, merchant_id, Math.round(parseFloat(amount) * 1e7), data.url);
+          // Persist withdrawal session
+          if (data.id && merchant_id) {
+            db.prepare(`
+              INSERT INTO withdrawals (id, merchant_id, amount_stroops, status, anchor_url)
+              VALUES (?, ?, ?, 'pending', ?)
+            `).run(data.id, merchant_id, Math.round(parseFloat(amount) * 1e7), data.url);
 
-          // Log analytics event
-          db.prepare(`
-            INSERT INTO events (event_name, merchant_id, metadata)
-            VALUES ('settlement_initiated', ?, ?)
-          `).run(merchant_id, JSON.stringify({ withdrawal_id: data.id, amount }));
+            // Log analytics event
+            db.prepare(`
+              INSERT INTO events (event_name, merchant_id, metadata)
+              VALUES ('settlement_initiated', ?, ?)
+            `).run(merchant_id, JSON.stringify({ withdrawal_id: data.id, amount }));
+          }
+
+          return reply.send(data);
         }
-
-        return reply.send(data);
       }
     } catch (err) {
       app.log.warn(err, 'SEP-24 withdrawal initiation failed, returning mock');

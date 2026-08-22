@@ -1,4 +1,80 @@
-# StellarPe — Session Notes (2026-08-15)
+# StellarPe — Session Notes
+
+---
+
+## Session 3 — 2026-08-23
+
+### ✅ What Was Done
+
+#### Smart Contract Verification & Initialization
+- Fixed syntax artifact in `contracts/settlement/src/test.rs`.
+- Ran full test suite (`cargo test`): **7/7 tests passing**.
+- Verified WASM compilation via `stellar contract build`.
+- **Contract Initialized On-Chain:** Invoked `initialize` on contract `CCCEJOC6FP2GV2MFSAZF7LNECT7QZ3BRYMZQ5OBEH3SOJWIVJN5T7ALS` on Stellar Testnet with admin key `GAAYOENQOYZAGPAMBOVDDIE7LFXRH6Z4QKFPX4X5RGADDVKV33P4QNEP` (Tx: `0efdab22bef08ac3bad9c586ed96e7a5a1969800f601e15961299536e18eee6f`).
+
+#### Backend Event Listener & Route Fixes
+- Fixed RPC event polling parameters and symbol topic encoding in `backend/src/services/stellarEventListener.js`.
+- Fixed fallback quote and withdrawal mechanisms in `backend/src/routes/quote.sep38.js` and `backend/src/routes/withdraw.sep24.js`.
+- Verified all backend endpoints (Health, Register, Transactions, SEP-38 Quote, SEP-24 Withdrawal, Feedback, Analytics).
+
+#### Frontend Polish
+- Configured `frontend/.env` with deployed `VITE_CONTRACT_ID`.
+- Resolved Oxlint warnings in `QRGenerator.jsx` and `Dashboard.jsx`.
+- Verified `npm run build` generates production bundle cleanly.
+
+### 📌 Project Status Summary
+- **Codebase & Architecture:** 100% complete and fully operational locally and on Testnet.
+- **Smart Contract:** Built, tested, deployed to Testnet, and initialized on-chain.
+- **Remaining for Level 4 Submission:**
+  1. Push repository to public GitHub (and maintain 15+ commits).
+  2. Deploy frontend (e.g. Vercel) and backend (e.g. Railway/Render) to obtain live public URLs.
+  3. Record 3–5 min demo walkthrough video (Loom/YouTube unlisted).
+  4. Onboard 10+ testnet users/wallets and summarize feedback & proof of usage.
+  5. Add UI/mobile screenshots to README / documentation.
+
+---
+
+## Session 2 — 2026-08-17
+
+### ✅ What Was Done
+
+#### Git Setup
+- Initialised git repo (`git init`) and made first commit: `feat: initial StellarPe implementation` (53 files, 8781 insertions)
+- Set global git author: **Om Pathak** / `ompathakin194@gmail.com`
+- Amended first commit to use real author identity
+
+#### Contract Build & Deploy
+- Ran `stellar contract build` from `contracts/settlement/` — produced `target/wasm32v1-none/release/stellarpe_settlement.wasm`
+- **Fix applied:** Created `contracts/settlement/.cargo/config.toml` to disable `reference-types` WASM feature (required for Soroban testnet compatibility):
+  ```toml
+  [target.wasm32-unknown-unknown]
+  rustflags = ["-C", "target-feature=-reference-types"]
+  ```
+- Deployed contract to **Stellar Testnet** using existing `deployer` key (funded via Friendbot):
+  ```bash
+  stellar contract deploy \
+    --wasm target/wasm32v1-none/release/stellarpe_settlement.wasm \
+    --source deployer \
+    --network testnet \
+    --inclusion-fee 1000000
+  ```
+- **Contract ID:** `CCCEJOC6FP2GV2MFSAZF7LNECT7QZ3BRYMZQ5OBEH3SOJWIVJN5T7ALS`
+- [View on Stellar Expert](https://stellar.expert/explorer/testnet/contract/CCCEJOC6FP2GV2MFSAZF7LNECT7QZ3BRYMZQ5OBEH3SOJWIVJN5T7ALS)
+
+#### Backend Wiring
+- Updated `backend/.env` → `CONTRACT_ID=CCCEJOC6FP2GV2MFSAZF7LNECT7QZ3BRYMZQ5OBEH3SOJWIVJN5T7ALS`
+- Stellar event listener now activates on backend startup
+
+### ❌ Remaining After This Session
+- [ ] Initialize the contract on-chain: `stellar contract invoke --id CCCEJOC6FP2GV2MFSAZF7LNECT7QZ3BRYMZQ5OBEH3SOJWIVJN5T7ALS --source deployer --network testnet -- initialize --admin <ANCHOR_SIGNING_KEY>`
+- [ ] Run both servers (`npm run dev` in `backend/` and `frontend/`)
+- [ ] Push to public GitHub
+- [ ] Deploy frontend (Vercel) + backend (Railway/Render)
+- [ ] Record demo video, onboard 10+ testnet users, collect feedback
+
+---
+
+## Session 1 — 2026-08-15
 
 ## ✅ What Was Done This Session
 

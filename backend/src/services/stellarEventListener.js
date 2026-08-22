@@ -4,12 +4,14 @@
  * and mirrors them into the local SQLite database.
  */
 
-import { Server } from '@stellar/stellar-sdk/rpc';
-import { scValToNative } from '@stellar/stellar-sdk';
+import { rpc, xdr, scValToNative } from '@stellar/stellar-sdk';
 
 const POLL_INTERVAL_MS = 5000; // Poll every 5 seconds
 const CONTRACT_ID = process.env.CONTRACT_ID || '';
 const RPC_URL = process.env.STELLAR_RPC_URL || 'https://soroban-testnet.stellar.org';
+
+const symPayment = xdr.ScVal.scvSymbol('payment').toXDR('base64');
+const symRecv = xdr.ScVal.scvSymbol('recv').toXDR('base64');
 
 export function startEventListener(db, logger) {
   if (!CONTRACT_ID) {
@@ -17,16 +19,20 @@ export function startEventListener(db, logger) {
     return;
   }
 
-  const server = new Server(RPC_URL, { allowHttp: false });
+  const server = new rpc.Server(RPC_URL, { allowHttp: false });
   let lastCursor = loadCursor(db);
 
   logger.info(`Stellar event listener started for contract ${CONTRACT_ID}`);
 
   const poll = async () => {
     try {
-      const eventParams = lastCursor
-        ? { cursor: lastCursor, limit: 50 }
-        : { startLedger: 1, limit: 50 };
+      let eventParams;
+      if (lastCursor) {
+        eventParams = { cursor: lastCursor, limit: 50 };
+      } else {
+        const latest = await server.getLatestLedger();
+        eventParams = { startLedger: Math.max(1, latest.sequence - 1000), limit: 50 };
+      }
 
       const response = await server.getEvents({
         ...eventParams,
@@ -35,8 +41,8 @@ export function startEventListener(db, logger) {
             type: 'contract',
             contractIds: [CONTRACT_ID],
             topics: [
-              // PaymentReceived: (payment, recv, ...)
-              ['AAAADwAAAAdwYXltZW50AAAA', 'AAAADwAAAARyZWN2AAAA'],
+              // PaymentReceived: (payment, recv)
+              [symPayment, symRecv],
             ],
           },
         ],

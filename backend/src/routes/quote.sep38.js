@@ -63,17 +63,19 @@ export async function quoteRoutes(app) {
 
     try {
       const { quoteServer } = await getAnchorInfo(ANCHOR_HOME_DOMAIN);
-      if (quoteServer) {
+      if (quoteServer && jwt) {
         const res = await fetch(`${quoteServer}/quote`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
-            ...(jwt ? { Authorization: `Bearer ${jwt}` } : {}),
+            Authorization: `Bearer ${jwt}`,
           },
           body: JSON.stringify({ sell_asset, sell_amount, buy_asset }),
         });
-        const data = await res.json();
-        return reply.send(data);
+        if (res.ok) {
+          const data = await res.json();
+          return reply.send(data);
+        }
       }
     } catch (err) {
       app.log.warn(err, 'SEP-38 quote request failed, returning mock');
