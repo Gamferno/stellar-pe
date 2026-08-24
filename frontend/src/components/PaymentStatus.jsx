@@ -81,7 +81,7 @@ export function PaymentStatus({ merchantId, onConfirmed }) {
         {lastTx && (
           <div className="status-meta">
             <span className="meta-pill">
-              {(lastTx.amount_stroops / 1e7).toFixed(2)} USDC
+              {(lastTx.amount_stroops / 1e7).toFixed(2)} {lastTx.asset || 'USDC'}
             </span>
             {lastTx.stellar_tx_hash && (
               <a

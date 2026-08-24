@@ -259,7 +259,7 @@ export default function Dashboard() {
                     <span className="tx-payer">{truncate(tx.payer_address)}</span>
                   </div>
                   <div className="tx-right">
-                    <span className="tx-amount">+{(tx.amount_stroops / 1e7).toFixed(2)} USDC</span>
+                    <span className="tx-amount">+{(tx.amount_stroops / 1e7).toFixed(2)} {tx.asset || 'USDC'}</span>
                     {tx.stellar_tx_hash && (
                       <a
                         href={`https://stellar.expert/explorer/testnet/tx/${tx.stellar_tx_hash}`}
