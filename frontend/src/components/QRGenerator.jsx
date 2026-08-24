@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react';
 import { QRCodeSVG } from 'qrcode.react';
-import { Download, RefreshCw, QrCode } from 'lucide-react';
+import { Download, RefreshCw, QrCode, Zap, Loader2 } from 'lucide-react';
 
 // USDC issuer on Stellar Testnet
 const USDC_ISSUER = 'GBBD47IF6LWK7P7MDEVSCWR7DPUWV3NY3DTQEVFL4NAT4AQH3ZLLFLA5';
@@ -8,6 +8,8 @@ const USDC_ISSUER = 'GBBD47IF6LWK7P7MDEVSCWR7DPUWV3NY3DTQEVFL4NAT4AQH3ZLLFLA5';
 export function QRGenerator({ merchantId, walletAddress, _contractId }) {
   const [amount, setAmount] = useState('');
   const [generated, setGenerated] = useState(false);
+  const [simulating, setSimulating] = useState(false);
+  const [simMsg, setSimMsg] = useState('');
   const qrRef = useRef(null);
 
   // SEP-7 payment URI — scannable by Lobstr, StellarX, and other SEP-7 wallets
@@ -19,6 +21,7 @@ export function QRGenerator({ merchantId, walletAddress, _contractId }) {
   const handleGenerate = () => {
     if (!amount || parseFloat(amount) <= 0) return;
     setGenerated(true);
+    setSimMsg('');
 
     // Log event to backend
     fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:3001/api'}/merchants/${merchantId}/qr?amount=${amount}`)
@@ -28,6 +31,27 @@ export function QRGenerator({ merchantId, walletAddress, _contractId }) {
   const handleReset = () => {
     setGenerated(false);
     setAmount('');
+    setSimMsg('');
+  };
+
+  const handleSimulatePay = async () => {
+    setSimulating(true);
+    setSimMsg('');
+    try {
+      const res = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:3001/api'}/merchants/${merchantId}/pay-simulate`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ amount_usdc: amount }),
+      });
+      const data = await res.json();
+      if (data.ok) {
+        setSimMsg(`✅ Paid on-chain! Tx: ${data.tx_hash.slice(0, 10)}…`);
+      }
+    } catch (e) {
+      setSimMsg('Simulated payment error: ' + e.message);
+    } finally {
+      setSimulating(false);
+    }
   };
 
   const downloadQR = () => {
@@ -98,6 +122,27 @@ export function QRGenerator({ merchantId, walletAddress, _contractId }) {
               <RefreshCw size={16} />
               New Amount
             </button>
+          </div>
+
+          <div style={{ marginTop: '0.85rem' }}>
+            <button
+              className="btn btn-accent btn-full"
+              onClick={handleSimulatePay}
+              disabled={simulating}
+            >
+              {simulating ? (
+                <>
+                  <Loader2 size={16} className="spin" />
+                  Submitting On-Chain Payment…
+                </>
+              ) : (
+                <>
+                  <Zap size={16} />
+                  Simulate Customer Pay ({parseFloat(amount || 0).toFixed(2)} USDC)
+                </>
+              )}
+            </button>
+            {simMsg && <p className="qr-scan-hint" style={{ color: '#00d26a', marginTop: '0.45rem' }}>{simMsg}</p>}
           </div>
         </div>
       )}

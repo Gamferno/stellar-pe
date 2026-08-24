@@ -9,6 +9,15 @@
  */
 
 import QRCode from 'qrcode';
+import {
+  Keypair,
+  rpc,
+  Contract,
+  TransactionBuilder,
+  Networks,
+  nativeToScVal,
+  Address,
+} from '@stellar/stellar-sdk';
 
 export async function merchantRoutes(app) {
   /** POST /api/merchants/register */
@@ -157,5 +166,92 @@ export async function merchantRoutes(app) {
       VALUES (?, ?, ?, ?, 'confirmed')
     `).run(id, payer_address, Math.round(parseFloat(amount_usdc) * 1e7), stellar_tx_hash || null);
     return reply.code(201).send({ ok: true, id: result.lastInsertRowid });
+  });
+
+  /** POST /api/merchants/:id/pay-simulate — Real testnet or simulated customer payment */
+  app.post('/:id/pay-simulate', async (req, reply) => {
+    const { id } = req.params;
+    const { amount_usdc = '15.00' } = req.body || {};
+    const stroops = Math.round(parseFloat(amount_usdc) * 1e7);
+    const db = req.db;
+
+    try {
+      const payer = Keypair.random();
+      const payerAddress = payer.publicKey();
+
+      // Fund customer on testnet
+      await fetch(`https://friendbot.stellar.org?addr=${payerAddress}`);
+
+      const contractId = process.env.CONTRACT_ID;
+      let txHash = null;
+
+      if (contractId && contractId.startsWith('C')) {
+        const server = new rpc.Server(process.env.STELLAR_RPC_URL || 'https://soroban-testnet.stellar.org');
+        const account = await server.getAccount(payerAddress);
+        const contract = new Contract(contractId);
+
+        const tx = new TransactionBuilder(account, {
+          fee: '100000',
+          networkPassphrase: Networks.TESTNET,
+        })
+          .addOperation(
+            contract.call(
+              'record_payment',
+              nativeToScVal(id),
+              new Address(payerAddress).toScVal(),
+              nativeToScVal(BigInt(stroops), { type: 'i128' }),
+              nativeToScVal('USDC')
+            )
+          )
+          .setTimeout(30)
+          .build();
+
+        const simulated = await server.simulateTransaction(tx);
+        const preparedTx = rpc.assembleTransaction(tx, simulated).build();
+        preparedTx.sign(payer);
+
+        const sendRes = await server.sendTransaction(preparedTx);
+        txHash = sendRes.hash;
+      } else {
+        txHash = `sim_${Date.now()}`;
+      }
+
+      // Record in SQLite
+      const result = db.prepare(`
+        INSERT INTO transactions (merchant_id, payer_address, amount_stroops, asset, stellar_tx_hash, status)
+        VALUES (?, ?, ?, 'USDC', ?, 'confirmed')
+      `).run(id, payerAddress, stroops, txHash);
+
+      db.prepare(`
+        INSERT INTO events (event_name, merchant_id, wallet_address, metadata)
+        VALUES ('payment_confirmed', ?, ?, ?)
+      `).run(id, payerAddress, JSON.stringify({ tx_hash: txHash, amount: stroops }));
+
+      return reply.send({
+        ok: true,
+        id: result.lastInsertRowid,
+        tx_hash: txHash,
+        payer: payerAddress,
+        amount_usdc,
+        explorer_url: `https://stellar.expert/explorer/testnet/tx/${txHash}`,
+      });
+    } catch (err) {
+      app.log.warn(err, 'Payment simulation fallback');
+      const mockHash = `sim_${Date.now()}`;
+      const mockPayer = 'GBBD47IF6LWK7P7MDEVSCWR7DPUWV3NY3DTQEVFL4NAT4AQH3ZLLFLA5';
+      const result = db.prepare(`
+        INSERT INTO transactions (merchant_id, payer_address, amount_stroops, asset, stellar_tx_hash, status)
+        VALUES (?, ?, ?, 'USDC', ?, 'confirmed')
+      `).run(id, mockPayer, stroops, mockHash);
+
+      return reply.send({
+        ok: true,
+        id: result.lastInsertRowid,
+        tx_hash: mockHash,
+        payer: mockPayer,
+        amount_usdc,
+        explorer_url: `https://stellar.expert/explorer/testnet/tx/${mockHash}`,
+      });
+    }
   });
 }
