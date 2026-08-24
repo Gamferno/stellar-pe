@@ -172,4 +172,41 @@ export async function withdrawRoutes(app) {
 
     return reply.send({ ok: true });
   });
+
+  /**
+   * POST /api/sep24/transactions/withdraw/confirm
+   * Direct confirmation of withdrawal for in-app anchor interactive modal
+   */
+  app.post('/transactions/withdraw/confirm', async (req, reply) => {
+    const { id, merchant_id, bank_details } = req.body || {};
+    const db = req.db;
+
+    if (!id || !merchant_id) {
+      return reply.badRequest('id and merchant_id required');
+    }
+
+    // Mark withdrawal completed
+    db.prepare(`
+      UPDATE withdrawals SET status = 'completed', updated_at = strftime('%s','now') WHERE id = ?
+    `).run(id);
+
+    // Mark merchant's confirmed transactions as settled
+    db.prepare(`
+      UPDATE transactions SET status = 'settled', anchor_tx_ref = ?, updated_at = strftime('%s','now')
+      WHERE merchant_id = ? AND status = 'confirmed'
+    `).run(id, merchant_id);
+
+    // Log analytics event
+    db.prepare(`
+      INSERT INTO events (event_name, merchant_id, metadata)
+      VALUES ('settlement_confirmed', ?, ?)
+    `).run(merchant_id, JSON.stringify({ withdrawal_id: id, bank_details, settled_at: new Date().toISOString() }));
+
+    return reply.send({
+      ok: true,
+      status: 'completed',
+      message: 'Settlement confirmed! Funds routed to bank account.',
+      id,
+    });
+  });
 }
