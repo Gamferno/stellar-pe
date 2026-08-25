@@ -214,12 +214,15 @@ export default function Dashboard() {
         )}
 
         {/* Settle button */}
-        {merchant && parseFloat(merchant.unsettled_balance_usdc || 0) > 0 && (
+        {merchant && (
           <SettleButton
             merchantId={merchant.id}
-            balance={merchant.unsettled_balance_stroops}
+            balance={merchant.unsettled_balance_stroops || 0}
             jwt={jwt}
-            onSettled={() => setShowFeedback(true)}
+            onSettled={() => {
+              refreshBalance();
+              setShowFeedback(true);
+            }}
           />
         )}
 
