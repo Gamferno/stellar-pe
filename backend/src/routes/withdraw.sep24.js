@@ -196,17 +196,23 @@ export async function withdrawRoutes(app) {
       WHERE merchant_id = ? AND status = 'confirmed'
     `).run(id, merchant_id);
 
+    const utr = `UTR-STL-${Date.now().toString().slice(-6)}${Math.floor(100000 + Math.random() * 900000)}`;
+    const settledAt = new Date().toISOString();
+
     // Log analytics event
     db.prepare(`
       INSERT INTO events (event_name, merchant_id, metadata)
       VALUES ('settlement_confirmed', ?, ?)
-    `).run(merchant_id, JSON.stringify({ withdrawal_id: id, bank_details, settled_at: new Date().toISOString() }));
+    `).run(merchant_id, JSON.stringify({ withdrawal_id: id, utr, bank_details, settled_at: settledAt }));
 
     return reply.send({
       ok: true,
       status: 'completed',
       message: 'Settlement confirmed! Funds routed to bank account.',
       id,
+      utr,
+      settled_at: settledAt,
+      bank_details: bank_details || {},
     });
   });
 }
