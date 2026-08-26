@@ -61,12 +61,19 @@ export function useFreighter() {
     return getNetwork();
   }, []);
 
+  const connectDemo = useCallback((mockAddress = 'GAAYOENQOYZAGPAMBOVDDIE7LFXRH6Z4QKFPX4X5RGADDVKV33P4QNEP') => {
+    setPublicKey(mockAddress);
+    setError(null);
+    return mockAddress;
+  }, []);
+
   return {
     publicKey,
     connecting,
     error,
     isConnected: !!publicKey,
     connect,
+    connectDemo,
     disconnect,
     signTransaction: signTx,
     getNetwork: getFreighterNetwork,

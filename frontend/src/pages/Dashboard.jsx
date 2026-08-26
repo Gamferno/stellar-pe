@@ -18,7 +18,7 @@ function truncate(key) {
 }
 
 export default function Dashboard() {
-  const { publicKey, connecting, error: walletError, connect, disconnect } = useFreighter();
+  const { publicKey, connecting, error: walletError, connect, connectDemo, disconnect } = useFreighter();
   const [merchant, setMerchant] = useState(null);
   const [transactions, setTransactions] = useState([]);
   const [analytics, setAnalytics] = useState(null);
@@ -118,6 +118,14 @@ export default function Dashboard() {
           <button className="btn btn-primary btn-full btn-lg" onClick={connect} disabled={connecting}>
             <Wallet size={20} />
             {connecting ? 'Connecting…' : 'Connect Freighter Wallet'}
+          </button>
+          <button
+            className="btn btn-outline btn-full"
+            onClick={() => connectDemo('GAAYOENQOYZAGPAMBOVDDIE7LFXRH6Z4QKFPX4X5RGADDVKV33P4QNEP')}
+            style={{ marginTop: '0.65rem' }}
+          >
+            <Zap size={18} />
+            Explore Demo Merchant
           </button>
           <p className="testnet-note">🌐 Running on Stellar Testnet — no real funds used</p>
         </div>
