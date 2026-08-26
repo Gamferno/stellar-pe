@@ -1,0 +1,101 @@
+name: StellarPe CI/CD Pipeline
+
+on:
+  push:
+    branches: [ master, main ]
+  pull_request:
+    branches: [ master, main ]
+  workflow_dispatch:
+
+jobs:
+  # ─── 1. Smart Contract Test & Build ───
+  contracts-ci:
+    name: Soroban Smart Contract CI
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: wasm32-unknown-unknown
+
+      - name: Cache Cargo dependencies
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/bin/
+            ~/.cargo/registry/index/
+            ~/.cargo/registry/cache/
+            ~/.cargo/git/db/
+            contracts/settlement/target/
+          key: ${{ runner.os }}-cargo-${{ hashFiles('contracts/settlement/Cargo.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-cargo-
+
+      - name: Run Soroban Contract Unit Tests
+        working-directory: contracts/settlement
+        run: cargo test --verbose
+
+      - name: Build Soroban Contract
+        working-directory: contracts/settlement
+        run: cargo build --release
+
+  # ─── 2. Backend Service CI ───
+  backend-ci:
+    name: Fastify Backend CI
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+          cache-dependency-path: backend/package-lock.json
+
+      - name: Install Backend Dependencies
+        working-directory: backend
+        run: npm ci
+
+      - name: Verify DB Schema & Route Modules
+        working-directory: backend
+        run: |
+          node -e "
+            import('./src/services/anchorClient.js').then(() => console.log('✅ Anchor client loaded'));
+            import('./src/routes/quote.sep38.js').then(() => console.log('✅ SEP-38 route loaded'));
+            import('./src/routes/withdraw.sep24.js').then(() => console.log('✅ SEP-24 route loaded'));
+            import('./src/routes/merchants.js').then(() => console.log('✅ Merchants route loaded'));
+          "
+
+  # ─── 3. Frontend PWA Build CI ───
+  frontend-ci:
+    name: React PWA Frontend CI
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Install Frontend Dependencies
+        working-directory: frontend
+        run: npm ci
+
+      - name: Build Production Frontend Bundle
+        working-directory: frontend
+        run: npm run build
+
+      - name: Verify Build Artifacts
+        run: |
+          test -f frontend/dist/index.html
+          test -d frontend/dist/assets
+          echo "✅ Production frontend bundle verified successfully!"
