@@ -14,11 +14,11 @@
 
 | Resource | Link / Details |
 |---|---|
-| **Demo Video (1080p Full HD)** | [Watch on Google Drive](https://drive.google.com/file/d/1FCza66_cD_GCA5Qh4LM7fXrUCSDRdTlC/view?usp=sharing) · [`docs/stellarpe_demo_60s.mp4`](./docs/stellarpe_demo_60s.mp4) · [WebM](./docs/stellarpe_demo_60s.webm) |
+| **Demo Video** | [Watch on Google Drive](https://drive.google.com/file/d/1FCza66_cD_GCA5Qh4LM7fXrUCSDRdTlC/view?usp=sharing) · [`docs/stellarpe_demo_60s.mp4`](./docs/stellarpe_demo_60s.mp4) · [WebM](./docs/stellarpe_demo_60s.webm) |
 | **Deployed Smart Contract** | [`CCCEJOC6FP2GV2MFSAZF7LNECT7QZ3BRYMZQ5OBEH3SOJWIVJN5T7ALS`](https://stellar.expert/explorer/testnet/contract/CCCEJOC6FP2GV2MFSAZF7LNECT7QZ3BRYMZQ5OBEH3SOJWIVJN5T7ALS) (Stellar Testnet) |
 | **Contract Initialization Tx** | [`0efdab22bef08ac3bad9c586ed96e7a5a1969800f601e15961299536e18eee6f`](https://stellar.expert/explorer/testnet/tx/0efdab22bef08ac3bad9c586ed96e7a5a1969800f601e15961299536e18eee6f) |
 | **On-Chain User Proofs** | 10+ Verified Testnet Payments in [`users.csv`](./users.csv) and [`docs/user_proofs.json`](./docs/user_proofs.json) |
-| **Live Web Application** | `[TODO: Paste deployed frontend URL, e.g. https://stellarpe.vercel.app]` |
+| **Live Web Application** | [Link](https://stellar-pe.vercel.app/) |
 
 ---
 
