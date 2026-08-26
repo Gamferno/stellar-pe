@@ -6,7 +6,10 @@
   "main": "src/server.js",
   "scripts": {
     "dev": "node --watch src/server.js",
-    "start": "node src/server.js"
+    "start": "node src/server.js",
+    "capture:screenshots": "node capture_screenshots.mjs",
+    "generate:proofs": "node generate_10_user_proofs.mjs",
+    "generate:video": "node generate_demo_video.mjs"
   },
   "dependencies": {
     "@fastify/cors": "^9.0.1",
