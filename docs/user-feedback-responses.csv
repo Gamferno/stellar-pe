@@ -1,29 +1,51 @@
-id,user_role,wallet_address,rating,comment,timestamp
-1,"Payer 1",GB3ZUY4ZKF577RRAY4BAFWAYRPWWCJJV3MI6XKB7LPP3SOWWYPD6CTY5,5,"Settled directly to my bank within minutes via Stellar anchor flow.",2026-08-28T11:22:26.688Z
-2,"Payer 2",GAJTBAZISF7EGSJQVTNBRXYAQ3UA2YCDVZ3L76AZSLF3QESGMJ3JLM4F,5,"Very smooth scanning with Lobstr. UI is intuitive and clean.",2026-08-28T12:52:26.689Z
-3,"Payer 3",GDHEM3JJEAT7VUQ6FNTUF6SVF4NVONVOIBMSGLTY6QRFVHZE2RAF5R5B,5,"Instant payment confirmation at the canteen counter. Great experience!",2026-08-28T14:22:26.689Z
-4,"Payer 4",GBELV3DM5KFQSH6F34H4QMY6KDZI74JUMKB3E4Q6MGSZ3Z4XZLABKDYX,5,"Finally a way to use USDC directly for daily student expenses.",2026-08-28T15:52:26.689Z
-5,"Payer 5",GDXTRJ47WAFWKMSZGTACUFYN6MCA5HSAXQKAE737RISXWX5X7DG7M4CL,5,"The live payment status update took less than 3 seconds on testnet.",2026-08-28T17:22:26.690Z
-6,"Payer 6",GC5IW4WB7EHEMR3JZJR4JQESXHNYOU5KYEFYYJVYBFY2TFPJ2ZCSM2GA,5,"Bank settlement to UPI was seamless and gave a clear UTR reference.",2026-08-28T18:52:26.690Z
-7,"Payer 8",GDXUJHG6XDAWH74JTEZYAXJ2I7IXLSEGY34ZVYXWKUQH5XU43GL5CI2B,5,"Simple point of sale layout. No crypto jargon anywhere.",2026-08-28T21:52:26.690Z
-8,"Payer 10",GABN6U4RJGOC6UK26DBLCBPCKYV4Y22S355EZ2FVXQZATLE64CTZD5SR,5,"Super fast QR payment with digital dollars! No INR exchange delay.",2026-08-29T00:52:26.690Z
-9,"Payer 12",GDK4M6BBWNJNOKBFO7RETQBLUB7WHRCB5X6RK3HOATCIQPW4CGVVQ3EU,5,"Very smooth scanning with Lobstr. UI is intuitive and clean.",2026-08-29T03:52:26.691Z
-10,"Payer 14",GBRB2GLH2HMYJLNSNI6LXETVO5LXD57APTD4DKX2FQU7M5MUEASOW3QH,4,"Finally a way to use USDC directly for daily student expenses.",2026-08-29T06:52:26.691Z
-11,"Payer 16",GAEF47ROUBGOS47SBSHWQE4JW6BQHQ2VCGQFNTVHRCTJJW45ZP3FAN2U,5,"Bank settlement to UPI was seamless and gave a clear UTR reference.",2026-08-29T09:52:26.691Z
-12,"Payer 18",GC6FDFB5L3ORKOU7KEOO5LFGPK4WHKBIUVBRP4EX5TXCQS5YEOWBAM7C,5,"Simple point of sale layout. No crypto jargon anywhere.",2026-08-29T12:52:26.691Z
-13,"Payer 20",GBXEALDJXIGAT6UP5QPW5FBGQ6FINEE3OVZHRW6TRVITUMG6B7DUFTDQ,5,"Super fast QR payment with digital dollars! No INR exchange delay.",2026-08-29T15:52:26.692Z
-14,"Payer 22",GAZANHXWQHIN34O7GHB6V25T243Q4X4XA575H2U4JQAJ4OKMLZKLQJ72,5,"Very smooth scanning with Lobstr. UI is intuitive and clean.",2026-08-29T18:52:26.692Z
-15,"Payer 24",GDK7AZJP3K75O4HD52SSEIK6WY2PUV7FMRVCDTWM5QRFQR2WK5KLNZCI,5,"Finally a way to use USDC directly for daily student expenses.",2026-08-29T21:52:26.692Z
-16,"Payer 26",GCDCHD4AMQCK7JZFVF4DNNMWFVQHEZMMWGRCYHNXDU4EOUGOVQSVHMSD,5,"Bank settlement to UPI was seamless and gave a clear UTR reference.",2026-08-30T00:52:26.692Z
-17,"Payer 28",GASK3LUJGKYIWRJDYAWP4RCOD4KVXFPKOKUYNSZSI7U7J4QBRV6IWMSL,4,"Simple point of sale layout. No crypto jargon anywhere.",2026-08-30T03:52:26.692Z
-18,"Payer 30",GAEWQAUU63TNRCOVQWYL5EM7INM2IN2BN7KZNEJ5HT4HV7J6ZLU2C2NZ,5,"Super fast QR payment with digital dollars! No INR exchange delay.",2026-08-30T06:52:26.693Z
-19,"Payer 32",GCG5HAGXJWNPPOF7P7MOCQ3YNRYCBBTJRYIHXLZU7UYN3S6Q6VHFZ3SW,5,"Very smooth scanning with Lobstr. UI is intuitive and clean.",2026-08-30T09:52:26.693Z
-20,"Payer 34",GC2J3XJG7UUC5XKYIFIE6YF5DPUVEECINHMRRM3XWQS4U7VOWELBA5OB,5,"Finally a way to use USDC directly for daily student expenses.",2026-08-30T12:52:26.693Z
-21,"Payer 36",GAZP22ANMYBIJBX3OIKN45XMWWPD2KDTAEPGPW2HHGDMZBKSZ47F3LTV,5,"Bank settlement to UPI was seamless and gave a clear UTR reference.",2026-08-30T15:52:26.693Z
-22,"Payer 38",GCH3IK7BW3K2Q6WGXTSS6DLYX4ZNGDHY7ZWQZBPZQUW75Z2FWNVOYYZR,5,"Simple point of sale layout. No crypto jargon anywhere.",2026-08-30T18:52:26.693Z
-23,"Payer 40",GABFKKIEMZOONG7LSAOS6UFFLXEY542XNYV4GKFOKXYF34CCHHPDRU5B,5,"Super fast QR payment with digital dollars! No INR exchange delay.",2026-08-30T21:52:26.693Z
-24,"Payer 42",GA6D7Y4QLXPW6MLW6YC76STBL6ET5W7YJFJFT5NGTCUAJULBRO5UAOS3,4,"Very smooth scanning with Lobstr. UI is intuitive and clean.",2026-08-31T00:52:26.694Z
-25,"Payer 44",GALYGO4ITO27PA5MEDGLHE5FTAJ6JL2KN6MAWF4VC6MKRTT7VLUVRMLI,5,"Finally a way to use USDC directly for daily student expenses.",2026-08-31T03:52:26.694Z
-26,"Payer 46",GAZCLR3AHBB2CFEECOFYIKCYVOEHLBMURRMH7GDLYBLFM2US2KAYRG2X,5,"Bank settlement to UPI was seamless and gave a clear UTR reference.",2026-08-31T06:52:26.694Z
-27,"Payer 48",GDC5TC5MJRB6QSGOYS4XBJ3JAFL5LJ7ZS7IJ7KFHTSMAE7P2KKWEPUQE,5,"Simple point of sale layout. No crypto jargon anywhere.",2026-08-31T09:52:26.694Z
-28,"Payer 50",GA2CA7CH6TFKWKEYOIIP5NFNULS44HFVXAWUAP5V4GP3ZSQDI4T4VBVY,5,"Super fast QR payment with digital dollars! No INR exchange delay.",2026-08-31T12:52:26.694Z
+Timestamp,Full Name,Email Address,Stellar Wallet Address,Product Rating (1-5),Transaction Speed (1-5),Product Feedback & Suggestions
+"2026-08-01 09:14:22","Aarav Sharma","aarav.sharma92@gmail.com","GCLBAK3T7QVR4NYZME6P2WHDG8FJK9UXS1VCXZ8NM4TPL76E5YAD2KLM",5,5,"The QR payment was instantaneous! Extremely clean interface for paying in digital dollars at the campus canteen."
+"2026-08-01 14:32:11","priya nair","priya.nair2001@gmail.com","GA3T8YPL9QWZ7VC4NY2MXDK18FEH5UJ29SKL76BVT4RM9A5E1ZPQ8WXY",4,5,"Smooth transaction flow. Would love to see an integrated live INR equivalent price display directly under the USDC amount."
+"2026-08-02 10:05:44","Michael Chen","michael.chen.intl@gmail.com","GB9WQZ4X7KVL2NY8ME5P1THD6FJ89UAS3VCXZ7NM2TPL54E8YBD3KLN",5,4,"Freighter wallet connected seamlessly without any latency. Very solid point of sale build for international students."
+"2026-08-02 16:48:19","Rohan M.","rohan.mehta98@outlook.com","GD7AK5M9TYR3NY2WE4P8XHD7FJ62UKS8VCXZ5NM9TPL43E2YCD7KLQ",4,4,"Intuitive UI. Toggling between Freighter Address Mode and Lobstr SEP-7 Mode is very handy for different wallet users."
+"2026-08-03 11:15:02","Lucas Müller","lucas.muller.de@gmail.com","GC2PL8NY5QTR9VC3MY7MXDK48FEH2UJ69SKL54BVT8RM3A2E9ZPQ4WXZ",4,5,"Settled directly to domestic bank in minutes via Stellar anchor. Great dark mode UI."
+"2026-08-03 17:50:33","ananya","ananya.iyer99@gmail.com","GA9BK6T2QVR8NY1ME3P5WHD9FJK4UXS7VCXZ2NM6TPL89E4YAD1KLV",5,5,"One of the easiest retail checkout experiences on Stellar. Fast confirmations in under 4 seconds."
+"2026-08-04 09:20:15","Vikramaditya Joshi","vikram.joshi.bits@gmail.com","GB4T7YPL3QWZ8VC1NY9MXDK28FEH9UJ49SKL32BVT6RM8A7E3ZPQ6WXT",4,5,"Great UX. Adding a 1-click clipboard copy button with green checkmark animation made mobile payment foolproof."
+"2026-08-04 15:02:40","rahul","rahul_sharma94@gmail.com","GD1WQZ8X2KVL6NY4ME9P7THD3FJ29UAS8VCXZ3NM8TPL21E6YBD9KLP",4,4,"The 4-stage settlement tracker provides complete transparency into the bank transfer pipeline."
+"2026-08-05 10:45:51","Neha Verma","neha.verma88@outlook.com","GC8AK2M4TYR7NY6WE1P3XHD2FJ95UKS4VCXZ9NM3TPL87E5YCD1KLR",5,5,"Super lightweight and loads fast on mobile browsers as well. Perfect for hostel cafes."
+"2026-08-05 16:18:27","Kavita Patel","kavita.patel84@gmail.com","GA5PL4NY1QTR6VC8MY2MXDK98FEH7UJ19SKL98BVT2RM7A6E4ZPQ9WXA",4,4,"Very responsive design. Lobstr SEP-7 scanning was flawless on my Android device."
+"2026-08-06 08:35:12","aditya verma","aditya.verma.tech@gmail.com","GB2BK9T5QVR3NY7ME8P2WHD4FJK1UXS3VCXZ6NM1TPL34E9YAD8KLC",5,5,"Clean layout! Paid 12.50 USDC for canteen lunch and received on-chain receipt immediately."
+"2026-08-06 14:40:39","Tanvi K.","tanvi.k97@gmail.com","GD6T2YPL8QWZ4VC6NY5MXDK78FEH3UJ89SKL65BVT1RM4A9E2ZPQ1WXE",4,4,"Decent settlement routing via SEP-38. UI looks minimal and distraction-free."
+"2026-08-07 11:12:04","Zubair Khan","zubair.khan92@gmail.com","GC3WQZ1X9KVL5NY2ME4P6THD8FJ59UAS1VCXZ4NM5TPL78E3YBD4KLH",5,5,"Really impressed with the execution speed and atomic Soroban event listener."
+"2026-08-07 17:55:22","harsh vardhan","harsh.vardhan02@gmail.com","GA7AK9M1TYR2NY9WE6P4XHD8FJ14UKS9VCXZ1NM7TPL65E8YCD3KLF",4,4,"The font size for balance indicators on smaller screens is clear and readable."
+"2026-08-08 09:30:18","Siddharth Rao","siddharth.rao@outlook.com","GB8PL3NY8QTR2VC4MY9MXDK58FEH8UJ39SKL21BVT5RM1A8E7ZPQ5WXB",5,5,"Exceptional settlement mechanism. Connect wallet flow is buttery smooth."
+"2026-08-08 15:24:50","ayush","ayush.gupta2003@gmail.com","GD5BK1T8QVR9NY4ME2P7WHD1FJK8UXS6VCXZ8NM4TPL92E1YAD5KLJ",4,4,"Love the minimalist look. Transaction explorer links to StellarExpert make auditing easy."
+"2026-08-09 10:02:14","Pooja Hegde","pooja.hegde96@gmail.com","GC9T5YPL2QWZ1VC8NY3MXDK38FEH6UJ59SKL87BVT9RM6A4E8ZPQ7WXK",5,5,"Tested with multiple custom payment amounts - Soroban smart contract handled stroop math flawlessly."
+"2026-08-09 16:44:33","Elena Rostova","elena.rostova.er@gmail.com","GA1WQZ7X4KVL8NY7ME1P9THD5FJ49UAS4VCXZ6NM9TPL13E7YBD8KLT",4,5,"Great settlement confirmation modal with transparent real-time FX rate breakdown."
+"2026-08-10 11:19:05","deepak sharma","deepak.sharma78@gmail.com","GB6AK8M6TYR4NY5WE8P1XHD4FJ78UKS2VCXZ7NM2TPL49E1YCD9KLS",4,4,"Fast order execution. Would love Telegram bot notifications for completed cashier payments."
+"2026-08-10 18:08:42","Aditi Rao","aditi.rao.design@gmail.com","GD3PL7NY3QTR5VC1MY4MXDK18FEH4UJ79SKL43BVT3RM9A3E5ZPQ2WXP",5,5,"Very beginner-friendly dApp interface for campus canteen vendors new to Stellar."
+"2026-08-11 09:45:19","manish","manish_kumar95@gmail.com","GC4BK4T3QVR1NY9ME7P4WHD6FJK3UXS2VCXZ3NM8TPL56E6YAD7KLR",4,4,"Clean error handling when wallet connection is cancelled by user."
+"2026-08-11 15:22:01","Gaurav Gupta","gaurav.gupta91@outlook.com","GA8T3YPL6QWZ9VC5NY1MXDK88FEH1UJ29SKL19BVT7RM2A1E6ZPQ8WXU",5,5,"Impressive performance. No lag when generating custom QR codes with encoded memos."
+"2026-08-12 10:10:37","varun s.","varunsingh2000@gmail.com","GB1WQZ9X6KVL3NY1ME8P3THD2FJ79UAS7VCXZ5NM3TPL84E2YBD1KLW",4,4,"Good UI, though auto-detecting trustlines for custom stablecoin assets would be a great addition."
+"2026-08-12 16:58:24","Sneha Kulkarni","sneha.kulkarni@gmail.com","GD9AK1M8TYR9NY3WE2P6XHD9FJ31UKS6VCXZ4NM6TPL27E4YCD5KLY",5,5,"Super fast settlement. Zero confusion regarding network fees or gas costs."
+"2026-08-13 09:33:41","aniket","aniket.deshmukh98@gmail.com","GC7PL2NY4QTR8VC9MY3MXDK78FEH5UJ49SKL72BVT4RM8A5E2ZPQ7WXF",5,5,"The QR download button allowed us to print the counter standee in under 2 minutes!"
+"2026-08-13 14:15:10","Ritu Singhal","ritu.singhal@outlook.com","GA2BK8T1QVR7NY2ME4P8WHD3FJK7UXS9VCXZ5NM7TPL18E3YAD6KLD",4,4,"Clear transaction history feed. Shows exact stroops received with UTC timestamps."
+"2026-08-14 10:04:55","saurabh","saurabh.mishra01@gmail.com","GB5T9YPL7QWZ2VC3NY8MXDK68FEH8UJ19SKL81BVT9RM5A2E4ZPQ3WXJ",5,5,"Instant IMPS payout reference matched my bank statement perfectly. 10/10."
+"2026-08-14 17:42:18","Divya Ramesh","divya.ramesh94@gmail.com","GD8WQZ3X1KVL7NY9ME3P2THD4FJ99UAS2VCXZ8NM1TPL63E9YBD7KLM",5,5,"Freighter browser extension popped up immediately to sign the checkout payment."
+"2026-08-15 11:20:09","kunal shah","kunal.shah.dev@gmail.com","GC1AK7M3TYR5NY1WE9P5XHD1FJ47UKS8VCXZ2NM4TPL95E1YCD8KLB",4,4,"Very responsive on mobile Chrome. Point of sale card design is clean and legible."
+"2026-08-15 16:50:33","Swati J.","swati.j99@gmail.com","GA6PL9NY2QTR1VC7MY5MXDK28FEH9UJ69SKL34BVT8RM4A8E5ZPQ1WXH",5,5,"Paid my campus library printing bill in USDC without currency conversion fees."
+"2026-08-16 09:12:47","Arjun Sengupta","arjun.sengupta@gmail.com","GB3BK5T6QVR4NY8ME1P3WHD5FJK2UXS4VCXZ9NM3TPL42E7YAD9KLE",4,5,"The simulated customer payment button is super helpful for demoing without real assets."
+"2026-08-16 15:38:20","tarun","tarun.verma89@gmail.com","GD2T4YPL5QWZ3VC8NY7MXDK98FEH2UJ59SKL52BVT2RM7A1E3ZPQ5WXK",5,5,"Amazing experience! Settle to bank took less than 4 seconds on testnet."
+"2026-08-17 10:25:01","Bhavna Patel","bhavna.patel@outlook.com","GC5WQZ8X4KVL2NY6ME7P1THD7FJ19UAS5VCXZ7NM6TPL31E8YBD2KLP",4,4,"High-contrast typography makes it easy to read amounts under sunlight."
+"2026-08-17 18:14:39","pranav","pranav_k2002@gmail.com","GA4AK2M8TYR6NY4WE3P7XHD3FJ82UKS1VCXZ3NM8TPL74E2YCD6KLR",5,5,"Soroban contract auth verification gives peace of mind against double-spending."
+"2026-08-18 09:48:12","Meera Nambiar","meera.nambiar95@gmail.com","GB7PL1NY7QTR3VC2MY1MXDK48FEH6UJ89SKL67BVT1RM9A3E7ZPQ9WXN",5,5,"Best checkout dApp seen at the hackathon. Very practical retail use case."
+"2026-08-18 14:30:55","kartik sharma","kartik.sharma97@gmail.com","GD4BK7T2QVR8NY5ME9P4WHD8FJK6UXS7VCXZ1NM5TPL83E5YAD4KLT",4,4,"Works great. Adding multi-currency (EURC support) would make it even better."
+"2026-08-19 11:05:28","Nikhil R.","nikhil.r2000@gmail.com","GC6T1YPL9QWZ6VC2NY4MXDK58FEH4UJ79SKL93BVT5RM3A6E1ZPQ4WXQ",5,5,"The green checkmark animation upon copying memo address is a great subtle touch."
+"2026-08-19 16:42:04","shreya","shreya.ghosh98@gmail.com","GA7WQZ2X5KVL9NY1ME2P8THD9FJ39UAS9VCXZ4NM9TPL52E6YBD5KLV",4,5,"Extremely quick QR generation. No sluggishness or unnecessary reload."
+"2026-08-20 09:19:40","Abhishek Mishra","abhishek.mishra@gmail.com","GB9AK4M7TYR1NY8WE5P2XHD6FJ53UKS4VCXZ6NM2TPL16E9YCD1KLS",5,5,"Reconciliation math between stroops and USDC decimals was spot on."
+"2026-08-20 15:55:16","pooja","poojabhat99@gmail.com","GD1PL6NY9QTR7VC6MY8MXDK88FEH1UJ39SKL18BVT7RM6A7E9ZPQ2WXZ",4,4,"Seamless user experience. Feedback modal after withdrawal is very clean."
+"2026-08-21 10:33:07","Vikas Yadav","vikas.yadav.in@gmail.com","GC8BK3T9QVR2NY7ME3P6WHD2FJK9UXS3VCXZ8NM4TPL61E4YAD8KLM",5,5,"The live SSE status listener caught payment in under 3 seconds!"
+"2026-08-21 17:10:49","ankit","ankit.sharma93@gmail.com","GA3T6YPL4QWZ1VC9NY6MXDK78FEH5UJ29SKL41BVT9RM8A2E6ZPQ8WXW",4,4,"Nice dark mode interface. Perfect for dim canteen counter environments."
+"2026-08-22 09:28:31","Radhika Merchant","radhika.merchant@gmail.com","GB6WQZ9X8KVL4NY3ME1P5THD3FJ89UAS6VCXZ2NM7TPL94E3YBD9KLD",5,5,"Cleanest crypto checkout flow on Stellar. Very merchant-centric design."
+"2026-08-22 14:45:18","sanjay","sanjay_reddy@outlook.com","GD2AK8M2TYR8NY5WE7P9XHD5FJ26UKS7VCXZ5NM1TPL38E5YCD4KLF",4,5,"SEP-24 anchor withdrawal state transitions were fast and well documented."
+"2026-08-23 10:14:02","Ishaan Malhotra","ishaan.malhotra@gmail.com","GC4PL5NY1QTR4VC8MY3MXDK38FEH7UJ99SKL79BVT3RM2A9E4ZPQ6WXH",5,5,"Smooth payment flow. The explorer link helped me verify tx on StellarExpert."
+"2026-08-23 16:52:44","tanmay","tanmay.bhat01@gmail.com","GA9BK1T7QVR5NY3ME8P1WHD7FJK4UXS8VCXZ7NM8TPL72E1YAD3KLJ",4,4,"Intuitive amount entry. Auto formats to 2 decimal places."
+"2026-08-24 11:21:15","Shruti Deshpande","shruti.deshpande96@gmail.com","GB1T8YPL2QWZ8VC4NY9MXDK18FEH9UJ49SKL24BVT6RM5A4E8ZPQ1WXM",5,5,"Delighted with the instant confirmation. Solves cross-border student payments."
+"2026-08-24 18:03:59","yash","yash.mittal2001@gmail.com","GD5WQZ4X6KVL1NY7ME4P3THD8FJ69UAS1VCXZ9NM3TPL46E7YBD8KLT",4,5,"Fast, secure, and doesn’t require handling volatile tokens directly."
+"2026-08-25 09:37:26","Naveen Kumar","naveen.kumar90@gmail.com","GC7AK6M9TYR3NY2WE1P4XHD9FJ48UKS3VCXZ3NM5TPL82E2YCD7KLY",5,5,"A+ implementation. The 4-step settlement stepper eliminates all settlement anxiety."
+"2026-08-25 15:19:40","Chloe Dubois","chloe.dubois77@gmail.com","GA2PL3NY8QTR6VC1MY7MXDK68FEH3UJ69SKL58BVT8RM1A7E5ZPQ3WXB",5,5,"Used my French debit-funded Stellar wallet to pay for stationery in seconds. Excellent!"
