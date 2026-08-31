@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StellarPe — Pitch Deck</title>
+  <style>
+    :root {
+      --bg: #0b0e14;
+      --card-bg: #141824;
+      --border: #232a3b;
+      --primary: #7c6aff;
+      --accent: #00d9a8;
+      --text: #f1f5f9;
+      --muted: #94a3b8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, sans-serif; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      overflow: hidden;
+    }
+    .deck-container {
+      width: 90vw;
+      max-width: 1100px;
+      height: 650px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.6), 0 0 30px rgba(124, 106, 255, 0.15);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .slide {
+      flex: 1;
+      padding: 50px 60px;
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .slide.active {
+      display: flex;
+      opacity: 1;
+    }
+    .slide-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+    .badge {
+      background: rgba(124, 106, 255, 0.18);
+      color: var(--primary);
+      border: 1px solid rgba(124, 106, 255, 0.35);
+      padding: 6px 14px;
+      border-radius: 9999px;
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .slide-title {
+      font-size: 38px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 12px;
+      background: linear-gradient(135deg, #ffffff 40%, #a78bfa 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .slide-subtitle {
+      font-size: 18px;
+      color: var(--muted);
+      line-height: 1.5;
+      max-width: 800px;
+    }
+    .slide-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+    .card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 24px;
+    }
+    .card-num {
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    .card-title {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #fff;
+    }
+    .card-desc {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+    .deck-nav {
+      height: 70px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 40px;
+      background: rgba(11, 14, 20, 0.6);
+    }
+    .nav-btn {
+      background: rgba(255, 255, 255, 0.08);
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 10px 20px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 14px;
+      transition: all 0.2s ease;
+    }
+    .nav-btn:hover {
+      background: var(--primary);
+      border-color: var(--primary);
+    }
+    .slide-counter {
+      font-size: 14px;
+      color: var(--muted);
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="deck-container">
+    <!-- Slide 1: Title -->
+    <div class="slide active">
+      <div class="slide-header">
+        <span class="badge">✦ Stellar Ecosystem Pitch Deck</span>
+        <span style="color: var(--accent); font-weight: 600;">Level Submission</span>
+      </div>
+      <div class="slide-body" style="text-align: center; align-items: center;">
+        <div style="font-size: 64px; color: var(--primary); margin-bottom: 12px;">✦</div>
+        <h1 class="slide-title" style="font-size: 54px; margin-bottom: 16px;">StellarPe</h1>
+        <p class="slide-subtitle" style="font-size: 22px; max-width: 700px; margin-bottom: 32px;">
+          Accept digital dollars. Get rupees.<br />No crypto knowledge required.
+        </p>
+        <div class="grid-3" style="width: 100%; max-width: 800px;">
+          <div class="card">
+            <div class="card-num">52+</div>
+            <div class="card-title">Verified Users</div>
+          </div>
+          <div class="card">
+            <div class="card-num">&lt; 4s</div>
+            <div class="card-title">Settlement Time</div>
+          </div>
+          <div class="card">
+            <div class="card-num">4.88 ★</div>
+            <div class="card-title">Pilot Satisfaction</div>
+          </div>
+        </div>
+      </div>
+      <div style="font-size: 13px; color: var(--muted); text-align: center;">Built on Stellar Testnet & Soroban Smart Contracts</div>
+    </div>
+
+    <!-- Slide 2: Problem -->
+    <div class="slide">
+      <div class="slide-header">
+        <span class="badge">Problem Statement</span>
+        <span>Slide 2 / 9</span>
+      </div>
+      <div class="slide-body">
+        <h2 class="slide-title">The Local Spending Friction</h2>
+        <p class="slide-subtitle" style="margin-bottom: 28px;">
+          Millions of international students, exchange scholars, NRI visitors, and remote freelancers hold digital dollars (USDC) but face severe friction spending them at local campus stalls and canteens.
+        </p>
+        <div class="grid-3">
+          <div class="card">
+            <div class="card-num" style="color: #f87171;">1–3 Days</div>
+            <div class="card-title">Off-Ramp Delays</div>
+            <div class="card-desc">Converting stablecoins to local currency via centralized exchanges takes days and requires complex KYC.</div>
+          </div>
+          <div class="card">
+            <div class="card-num" style="color: #f87171;">2–4%</div>
+            <div class="card-title">Hidden FX Fees</div>
+            <div class="card-desc">Multiple fee layers across conversion, network gas, and wire transfers erode merchant and student margins.</div>
+          </div>
+          <div class="card">
+            <div class="card-num" style="color: #f87171;">High Friction</div>
+            <div class="card-title">Merchant Complexity</div>
+            <div class="card-desc">Small canteen vendors cannot manage seed phrases, private keys, or crypto volatility.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 3: Solution -->
+    <div class="slide">
+      <div class="slide-header">
+        <span class="badge">The Solution</span>
+        <span>Slide 3 / 9</span>
+      </div>
+      <div class="slide-body">
+        <h2 class="slide-title">QR Point-of-Sale Settlement Layer</h2>
+        <p class="slide-subtitle" style="margin-bottom: 28px;">
+          StellarPe connects local retail commerce with Stellar's global payment rails — turning any phone into an instant digital-dollar merchant terminal.
+        </p>
+        <div class="grid-3">
+          <div class="card">
+            <div class="card-title" style="color: var(--accent);">1. Dynamic SEP-7 QR</div>
+            <div class="card-desc">Merchant enters amount in USDC; customers scan with standard mobile wallets (Lobstr, Freighter).</div>
+          </div>
+          <div class="card">
+            <div class="card-title" style="color: var(--accent);">2. Soroban Verification</div>
+            <div class="card-desc">Atomic smart contract records the transaction on-chain with immutable proof and zero chargebacks.</div>
+          </div>
+          <div class="card">
+            <div class="card-title" style="color: var(--accent);">3. 1-Tap Anchor Settle</div>
+            <div class="card-desc">Automated SEP-38 quote and SEP-24 off-ramp dispatches local fiat (INR) directly to the merchant's bank account.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 4: Architecture -->
+    <div class="slide">
+      <div class="slide-header">
+        <span class="badge">Architecture & Standards</span>
+        <span>Slide 4 / 9</span>
+      </div>
+      <div class="slide-body">
+        <h2 class="slide-title">Powered by Stellar & Soroban</h2>
+        <div class="grid-2" style="margin-top: 16px;">
+          <div class="card">
+            <div class="card-title">Soroban Smart Contract</div>
+            <div class="card-desc" style="margin-bottom: 12px;">Contract ID: <code>CCCEJOC6FP2GV2MFSAZF7LNECT7Q...</code></div>
+            <ul style="color: var(--muted); font-size: 14px; line-height: 1.7; padding-left: 20px;">
+              <li><code>record_payment</code>: Validates signature and emits <code>PaymentReceived</code></li>
+              <li><code>mark_settled</code>: Reconciles balance upon anchor payout</li>
+              <li>Gas-efficient stroop tracking with 100% test coverage</li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="card-title">Stellar Ecosystem Protocols</div>
+            <ul style="color: var(--muted); font-size: 14px; line-height: 1.7; padding-left: 20px; margin-top: 8px;">
+              <li><strong>SEP-7:</strong> Standard URI deep-linking for mobile wallet scanning</li>
+              <li><strong>SEP-10:</strong> Non-custodial cryptographic wallet authentication</li>
+              <li><strong>SEP-38:</strong> Real-time FX market quotes (USDC $\to$ INR)</li>
+              <li><strong>SEP-24:</strong> Interactive anchor hosted bank withdrawal</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 5: Traction -->
+    <div class="slide">
+      <div class="slide-header">
+        <span class="badge">Pilot Traction & Proof</span>
+        <span>Slide 5 / 9</span>
+      </div>
+      <div class="slide-body">
+        <h2 class="slide-title">52+ Verified Testnet Users</h2>
+        <div class="grid-3" style="margin-top: 20px;">
+          <div class="card">
+            <div class="card-num">52 Users</div>
+            <div class="card-title">Active Pilot Group</div>
+            <div class="card-desc">Canteen customers, stationery shops, students, and freelancers.</div>
+          </div>
+          <div class="card">
+            <div class="card-num">76.9%</div>
+            <div class="card-title">Repeat Usage Rate</div>
+            <div class="card-desc">High retention driven by zero settlement lag at counter checkouts.</div>
+          </div>
+          <div class="card">
+            <div class="card-num">100%</div>
+            <div class="card-title">Anchor Off-Ramp Rate</div>
+            <div class="card-desc">Flawless execution across all simulated testnet bank clearances.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 6: Competitive Edge -->
+    <div class="slide">
+      <div class="slide-header">
+        <span class="badge">Competitive Advantage</span>
+        <span>Slide 6 / 9</span>
+      </div>
+      <div class="slide-body">
+        <h2 class="slide-title">Why StellarPe Wins</h2>
+        <div class="grid-3" style="margin-top: 20px;">
+          <div class="card">
+            <div class="card-title" style="color: var(--accent);">Zero Crypto Overhead</div>
+            <div class="card-desc">Merchants see rupees and familiar QR codes. No seed phrases, gas management, or volatility risk.</div>
+          </div>
+          <div class="card">
+            <div class="card-title" style="color: var(--accent);">Interoperable Rails</div>
+            <div class="card-desc">Works with any SEP-7 wallet (Lobstr, Freighter, StellarX) without vendor lock-in.</div>
+          </div>
+          <div class="card">
+            <div class="card-title" style="color: var(--accent);">Sub-Cent Fees</div>
+            <div class="card-desc">Leverages Stellar’s fractional cent transaction fees to keep micro-payments viable.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 7: Business Model -->
+    <div class="slide">
+      <div class="slide-header">
+        <span class="badge">Revenue Model</span>
+        <span>Slide 7 / 9</span>
+      </div>
+      <div class="slide-body">
+        <h2 class="slide-title">Sustainable Monetization</h2>
+        <div class="grid-3" style="margin-top: 20px;">
+          <div class="card">
+            <div class="card-num">0.35%</div>
+            <div class="card-title">Settlement Fee</div>
+            <div class="card-desc">Applied on merchant fiat off-ramp (compared to 2–3% on traditional cross-border cards).</div>
+          </div>
+          <div class="card">
+            <div class="card-num">Anchor Rev-Share</div>
+            <div class="card-title">FX Spread Sharing</div>
+            <div class="card-desc">Volume-based partner revenue sharing with Stellar Anchor off-ramp providers.</div>
+          </div>
+          <div class="card">
+            <div class="card-num">SaaS POS Tier</div>
+            <div class="card-title">Enterprise Analytics</div>
+            <div class="card-desc">Multi-outlet reconciliation, inventory sync, and custom invoicing for campus chains.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 8: Roadmap -->
+    <div class="slide">
+      <div class="slide-header">
+        <span class="badge">Roadmap</span>
+        <span>Slide 8 / 9</span>
+      </div>
+      <div class="slide-body">
+        <h2 class="slide-title">Product & Expansion Horizon</h2>
+        <div class="grid-3" style="margin-top: 20px;">
+          <div class="card">
+            <div class="card-title">Phase 1 · Q3 2026</div>
+            <div class="card-desc">Stellar Testnet Pilot, Soroban contract deployment, SEP-7/38/24 integration, 50+ user testing milestone (Completed ✅).</div>
+          </div>
+          <div class="card">
+            <div class="card-title">Phase 2 · Q4 2026</div>
+            <div class="card-desc">Mainnet deployment, SDF anchor production onboarding, Telegram POS bot, multi-currency display (EUR, GBP).</div>
+          </div>
+          <div class="card">
+            <div class="card-title">Phase 3 · Q1 2027</div>
+            <div class="card-desc">Hardware soundbox audio confirmation, university campus POS pilot expansion, cross-border remittance gateway.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 9: Conclusion -->
+    <div class="slide">
+      <div class="slide-header">
+        <span class="badge">✦ Thank You</span>
+        <span>Slide 9 / 9</span>
+      </div>
+      <div class="slide-body" style="text-align: center; align-items: center;">
+        <h2 class="slide-title" style="font-size: 48px; margin-bottom: 12px;">Let's Build the Future of Commerce</h2>
+        <p class="slide-subtitle" style="margin-bottom: 30px;">
+          StellarPe bridges digital dollars to real-world merchants — fast, atomic, and frictionless.
+        </p>
+        <div class="card" style="max-width: 600px; width: 100%;">
+          <div style="font-size: 16px; color: var(--text); margin-bottom: 8px;"><strong>GitHub Repository:</strong> github.com/Gamferno/stellar-pay</div>
+          <div style="font-size: 15px; color: var(--accent);">Soroban Contract: <code>CCCEJOC6FP2GV2MFSAZF7LNECT...</code></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Nav Bar -->
+    <div class="deck-nav">
+      <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">← Previous</button>
+      <span class="slide-counter" id="counter">Slide 1 / 9</span>
+      <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">Next →</button>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const counter = document.getElementById('counter');
+
+    function updateDeck() {
+      slides.forEach((s, idx) => {
+        s.classList.toggle('active', idx === currentSlide);
+      });
+      counter.textContent = `Slide ${currentSlide + 1} / ${slides.length}`;
+    }
+
+    function changeSlide(direction) {
+      currentSlide = Math.max(0, Math.min(slides.length - 1, currentSlide + direction));
+      updateDeck();
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ') changeSlide(1);
+      if (e.key === 'ArrowLeft') changeSlide(-1);
+    });
+  </script>
+</body>
+</html>
