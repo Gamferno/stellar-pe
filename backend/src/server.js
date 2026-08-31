@@ -5,7 +5,7 @@ import { fileURLToPath } from 'url';
 import Fastify from 'fastify';
 import cors from '@fastify/cors';
 import sensible from '@fastify/sensible';
-import Database from 'better-sqlite3';
+import Database from './db/db.js';
 
 import { authRoutes } from './routes/auth.sep10.js';
 import { quoteRoutes } from './routes/quote.sep38.js';

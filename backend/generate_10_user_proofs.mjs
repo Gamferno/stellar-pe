@@ -9,7 +9,7 @@ import {
   nativeToScVal,
   Address
 } from '@stellar/stellar-sdk';
-import Database from 'better-sqlite3';
+import Database from './src/db/db.js';
 
 const RPC_URL = 'https://soroban-testnet.stellar.org';
 const HORIZON_URL = 'https://horizon-testnet.stellar.org';

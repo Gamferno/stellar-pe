@@ -9,7 +9,8 @@
     "start": "node src/server.js",
     "capture:screenshots": "node capture_screenshots.mjs",
     "generate:proofs": "node generate_10_user_proofs.mjs",
-    "generate:video": "node generate_demo_video.mjs"
+    "generate:video": "node generate_demo_video.mjs",
+    "generate:showcase-videos": "node generate_showcase_videos.mjs"
   },
   "dependencies": {
     "@fastify/cors": "^9.0.1",

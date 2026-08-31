@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { spawn } from 'child_process';
 import puppeteer from 'puppeteer-core';
-import Database from 'better-sqlite3';
+import Database from './src/db/db.js';
 
 const ROOT_DIR = path.resolve('..');
 const DB_PATH = path.join(ROOT_DIR, 'backend/data/stellarpe.sqlite');
