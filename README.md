@@ -26,7 +26,7 @@ The merchant never manages seed phrases, gas fees, or cryptocurrency volatility.
 
 ---
 
-## 📋 Level Deliverables Matrix
+## 📋 Level 5 (Blue Belt) Deliverables Matrix
 
 | Requirement | Deliverable Description | Verification Location / Link |
 |:---|:---|:---|
