@@ -58,8 +58,11 @@ Every pilot user interaction executes the following end-to-end atomic flow on **
 
 ---
 
-## 5. Raw Data Exports
+## 5. Raw Data Exports & Feedback Sheets
 
+- **Live Google Sheets Responses:** [Google Sheets 50-Response Survey](https://docs.google.com/spreadsheets/d/1eKBwsXOFj4yKcJeSGzq-qwSa0wQsWjaeWOTdyn2NG0A/edit?usp=sharing)
+- **Exported Excel Spreadsheet:** [`docs/user-onboarding-feedback.xlsx`](./user-onboarding-feedback.xlsx) · [`docs/user-feedback-responses.xlsx`](./user-feedback-responses.xlsx)
+- **Feedback Survey Export (CSV):** [`docs/user-onboarding-feedback.csv`](./user-onboarding-feedback.csv)
 - **CSV User Proofs:** [`users.csv`](../users.csv)
 - **JSON Structured Proofs:** [`docs/user_proofs.json`](./user_proofs.json)
-- **Feedback Survey Export:** [`docs/user-feedback-responses.csv`](./user-feedback-responses.csv)
+

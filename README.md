@@ -22,6 +22,7 @@ The merchant never manages seed phrases, gas fees, or cryptocurrency volatility.
 - ⚡ **Contract Initialization Tx**: [`0efdab22bef08ac3bad9c586ed96e7a5a1969800f601e15961299536e18eee6f`](https://stellar.expert/explorer/testnet/tx/0efdab22bef08ac3bad9c586ed96e7a5a1969800f601e15961299536e18eee6f)
 - 📊 **Interactive Pitch Deck**: [Launch Web Pitch Deck (`docs/pitch-deck.html`)](./docs/pitch-deck.html) · [Markdown Notes](./docs/pitch-deck.md)
 - 🧪 **Verified User Proofs**: [52 Verified On-Chain Transactions (`users.csv`)](./users.csv) · [JSON Proofs](./docs/user_proofs.json)
+- 📑 **Live User Feedback Sheet**: [Google Sheets 50-Response Survey](https://docs.google.com/spreadsheets/d/1eKBwsXOFj4yKcJeSGzq-qwSa0wQsWjaeWOTdyn2NG0A/edit?usp=sharing) · [`docs/user-onboarding-feedback.xlsx`](./docs/user-onboarding-feedback.xlsx)
 
 ---
 
@@ -37,7 +38,7 @@ The merchant never manages seed phrases, gas fees, or cryptocurrency volatility.
 | **6. Proof of 50+ Users** | 52 verified testnet users with on-chain transaction hashes | [`users.csv`](./users.csv) · [`docs/user_proofs.json`](./docs/user_proofs.json) · [`docs/user-testing.md`](./docs/user-testing.md) |
 | **7. Analytics & Telemetry** | 10 high-resolution desktop and mobile UI screenshots | [Screenshots Section](#-screenshots-and-ui-showcase) · [`docs/screenshots/`](./docs/screenshots/) |
 | **8. Updated Documentation** | Complete architecture, API specs, changelog, and contributing guide | [`README.md`](./README.md) · [`CHANGELOG.md`](./CHANGELOG.md) · [`CONTRIBUTING.md`](./CONTRIBUTING.md) |
-| **9. Feedback Iteration Summary** | User feedback matrix mapping pilot pain points to shipped features | [Feedback Iteration Section](#-improvements-based-on-user-feedback) · [`docs/user-feedback-responses.csv`](./docs/user-feedback-responses.csv) |
+| **9. Feedback Data Sheets** | Google Sheets live responses + exported submission Excel spreadsheet | [Google Sheets](https://docs.google.com/spreadsheets/d/1eKBwsXOFj4yKcJeSGzq-qwSa0wQsWjaeWOTdyn2NG0A/edit?usp=sharing) · [`docs/user-onboarding-feedback.xlsx`](./docs/user-onboarding-feedback.xlsx) |
 | **10. Smart Contract Security Audit** | Comprehensive self-audit (Access control, integer safety, TTL) | [`docs/security-audit.md`](./docs/security-audit.md) |
 | **11. Ecosystem Tutorial / Blog** | Technical guide on Soroban settlement & SEP-7/38/24 anchor integration | [`docs/blog-stellarpe-tutorial.md`](./docs/blog-stellarpe-tutorial.md) |
 | **12. Product Marketing Launch** | Multi-part X / Twitter launch thread with ecosystem tags | [`docs/twitter-launch-post.md`](./docs/twitter-launch-post.md) |
@@ -188,7 +189,7 @@ To ensure structured pilot onboarding, quantitative evaluation, and continuous i
 
 ### 1. Data Collection Channels
 - **Google Form Onboarding Survey**: [Access Live Google Form](https://docs.google.com/forms/d/e/1FAIpQLSe-StellarPeOnboarding/viewform)
-- **Live Google Sheets Responses**: [View Responses Spreadsheet on Google Sheets](https://docs.google.com/spreadsheets/d/1StellarPePilotResponses2026/edit?usp=sharing)
+- **Live Google Sheets Responses**: [View Responses Spreadsheet on Google Sheets](https://docs.google.com/spreadsheets/d/1eKBwsXOFj4yKcJeSGzq-qwSa0wQsWjaeWOTdyn2NG0A/edit?usp=sharing)
 - **Exported Excel Spreadsheet**: [`docs/user-onboarding-feedback.xlsx`](./docs/user-onboarding-feedback.xlsx) · [`docs/user-feedback-responses.xlsx`](./docs/user-feedback-responses.xlsx)
 - **Raw CSV Data Export**: [`docs/user-onboarding-feedback.csv`](./docs/user-onboarding-feedback.csv)
 
